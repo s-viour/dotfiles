@@ -1,0 +1,370 @@
+;########;
+; COLORS ;
+;########;
+
+[colors]
+BGK = #f8f8f8
+FRG = #000000
+
+BLK = #2a2b32
+RED = #da3e39
+GRN = #41933e
+YLW = #855504
+BLU = #315eee
+PPL = #930092
+CYN = #0e6fad
+WHT = #ffffff
+ONG = #c1593e
+
+
+;##########;
+; MAIN BAR ;
+;##########;
+
+[bar/SOS]
+background = ${colors.BGK}
+foreground = ${colors.FRG}
+
+border-size = 3px
+border-color = ${colors.BLK}
+
+override-redirect = true
+
+offset-x = 15%
+offset-y = 5px
+
+width = 75%
+height = 3%
+
+fixed-center = true
+
+modules-left = i3
+modules-right = date pulseaudio cpu memory
+
+monitor = HDMI-0
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+font-0 = "Cutive Mono:size=10.5;1"
+font-1 = FontAwesome:size=12;1
+font-2 = "Font Awesome 5 Brands:size=12;1"
+
+
+;###########;
+; MUSIC BAR ;
+;###########;
+
+[bar/SOS2]
+background = ${colors.BGK}
+foreground = ${colors.FRG}
+
+border-size = 3px
+border-color = ${colors.BLK}
+
+bottom = true
+
+override-redirect = true
+
+width = 30%
+height = 3%
+
+offset-x = 35%
+offset-y = 5px
+
+enable-ipc = true
+
+fixed-center = false
+
+modules-left = previous playpause next
+modules-center = spotify
+modules-right = spotify-label
+
+monitor = HDMI-0
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+font-0 = "Cutive Mono:size=10.5;1"
+font-1 = FontAwesome:size=12;1
+font-2 = "VL Gothic:size=10;1"
+
+
+;###########;
+; I3 MODULE ;
+;###########;
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; ws-icon-[0-9]+ = label;icon
+; NOTE: The label needs to match the name of the i3 workspace
+ws-icon-0 = 0;
+ws-icon-1 = 1;
+ws-icon-2 = 2;
+ws-icon-3 = 3;
+ws-icon-4 = 4;1
+ws-icon-5 = 5;2
+ws-icon-6 = 6;3
+ws-icon-7 = 7;4
+ws-icon-8 = 8;5
+ws-icon-9 = 9;6
+ws-icon-default = X
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %icon%
+label-focused-foreground = ${colors.WHT}
+label-focused-background = ${colors.BLK}
+label-focused-underline = ${colors.BLK}
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %icon%
+label-visible-underline = ${colors.FRG}
+label-visible-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = ${colors.RED}
+label-urgent-background = ${colors.BGK}
+label-urgent-padding = 1
+
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 1
+label-separator-foreground = ${colors.BGK}
+
+
+;#############;
+; DATE MODULE ;
+;##############;
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = "%{O-10} %{T1}  %{T-} %r %{T1}  %{T-} %A, %d %B %Y %{O10}"
+
+
+;############;
+; CPU MODULE ;
+;#############;
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+interval = 1
+
+label = "%{O-10}  CPU%percentage:3:3%% %{O10}"
+
+;###############;
+; MEMORY MODULE ;
+;###############;
+[module/memory]
+type = internal/memory
+
+label = "%{O-10}  MEM %gb_used%/%gb_total% %{O10} "
+
+format = <label>
+
+
+
+;################;
+; NETWORK MODULE ;
+;################;
+
+[module/network]
+type = internal/network
+interface = wlp3s0f0u1
+
+label-active-font = 1
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = %{O-10} %{T1}  %{T-}<label-connected> %{O10}
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+label-connected = %downspeed:5:5%s
+label-connected-foreground = ${colors.FRG}
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+; Default: (none)
+label-disconnected = 0 KB/s
+label-disconnected-foreground = ${colors.FRG}
+
+
+;###################;
+; PULSEAUDIO MODULE ;
+;###################;
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points) (unreleased)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = %{O-10} %{T1} %{T-} <label-volume> %{O10}
+
+label-muted = %{O-10} %{T1} %{T-} 00% %{O10}
+
+
+
+;#################;
+; SPOTIFY MODULES ;
+;#################;
+
+
+;###############;
+; PREVIOUS SONG ;
+;###############;
+
+[module/previous]
+type = custom/script
+interval = 86400
+label-active-font = 1
+format = "%{F#2a2b32}<label>"
+format-padding = 1
+; Previous song icon
+; 
+exec = echo ""
+format-underline = ${colors.FRG}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+;###########;
+; NEXT SONG ;
+;###########;
+
+[module/next]
+type = custom/script
+interval = 86400
+label-active-font = 1
+format = "%{F#2a2b32}<label>"
+format-padding = 1
+; Next song icon
+; "
+exec = echo "  "
+format-underline = ${colors.FRG}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+;################;
+; PLAY AND PAUSE ;
+;################;
+
+[module/playpause]
+type = custom/ipc
+label-active-font = 1
+; Default
+hook-0 = echo "%{F#2a2b32} "
+; Playing
+; %{F#41933e} 
+hook-1 = echo "%{F#2a2b32} "
+; Paused
+; {F#41933e} 
+hook-2 = echo "%{F#2a2b32} "
+initial = 1
+format-underline = ${colors.FRG}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+;##############;
+; SONG DISPLAY ;
+;##############;
+
+[module/spotify]
+type = custom/script
+exec = python3 ~/.config/polybar/SOSbar/polybar-spotify-controls/scripts/spotify/spotify_status.py
+format-underline = ${colors.FRG}
+format = "<label>"
+interval = 1
+line-size = 1
+click-left = i3-msg '[class="Spotify"] focus'
+
+
+
+;###############;
+; SPOTIFY LABEL ;
+;###############;
+
+[module/spotify-label]
+type = custom/text
+label-active-font = 1
+content = "  "
