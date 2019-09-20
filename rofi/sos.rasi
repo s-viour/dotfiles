@@ -8,9 +8,11 @@
     lightbg:                     #0e6fad;
     red:                         #da3e39;
     orange:                      #c1593e; 
-    blue:                        #315eee; 
+    blue:                        #315eee;
+    black:                       #2a2b32;
+    white:                       #f8f8f8;
 
-    selected-normal-foreground:  @foreground;
+    selected-normal-foreground:  @white;
     normal-foreground:           @foreground;
     alternate-normal-background: @background;
     selected-urgent-foreground:  @foreground;
@@ -22,7 +24,7 @@
     alternate-active-background: @orange;
     bordercolor:                 @foreground;
     normal-background:           @background;
-    selected-normal-background:  @orange;
+    selected-normal-background:  @black;
     separatorcolor:              @orange;
     spacing:                     2;
     urgent-background:           @red;
