@@ -283,4 +283,4 @@ exec nitrogen --restore
 exec compton -b
 
 # start polybar
-exec bash /home/saviour/.config/polybar/SOSbar/launchpolybar.sh
+exec bash /home/saviour/Documents/dotfiles/polybar/SOSbar/launchpolybar.sh

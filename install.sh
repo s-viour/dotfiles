@@ -54,5 +54,8 @@ done
 echo
 echo
 
+echo "requiring sudo permission to install the sddm theme"
+sudo cp --recursive $dir/chili /usr/share/sddm/themes/chili
+
 cd $dir
 dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf

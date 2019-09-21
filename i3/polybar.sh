@@ -7,4 +7,4 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar
-sh ~/.config/polybar/SOSbar/start.sh
+sh ~/Documents/dotfiles/polybar/SOSbar/start.sh
