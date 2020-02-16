@@ -1,4 +1,5 @@
 #!/bin/bash
+pkill polybar
 
 unlink /tmp/ipc-bottom
 
