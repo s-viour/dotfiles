@@ -38,12 +38,10 @@ height = 3%
 
 fixed-center = true
 
-modules-left = i3
+modules-left = ewmh
 modules-right = date pulseaudio cpu memory
 
-monitor = HDMI-0
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+monitor = eDP1
 
 font-0 = "Cutive Mono:size=10.5;1"
 font-1 = FontAwesome:size=12;1
@@ -79,13 +77,123 @@ modules-left = previous playpause next
 modules-center = spotify
 modules-right = spotify-label
 
-monitor = HDMI-0
+monitor = eDP1
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 font-0 = "Cutive Mono:size=10.5;1"
 font-1 = FontAwesome:size=12;1
 font-2 = "VL Gothic:size=10;1"
+
+
+;#############;
+; EMWH MODULE ;
+##############;
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; icon-[0-9]+ = <desktop-name>;<icon>
+; NOTE: The desktop name needs to match the name configured by the WM
+; You can get a list of the defined desktops using:
+; $ xprop -root _NET_DESKTOP_NAMES
+icon-0 = home;
+icon-1 = music;
+icon-2 = chat;
+icon-3 = code;
+
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+; Default: <label-state>
+format = <label-state>
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-active = %icon%
+label-active-padding = 1
+label-active-foreground = #ffffff
+label-active-background = #3f3f3f
+label-active-underline = #fba922
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-underline = #555555
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-padding = 1
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-empty = %icon%
+label-empty-padding = 1
+label-empty-foreground = #55
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = true
+
+
+;################;
+; XWINDOW MODULE ;
+;################;
+
+[module/title]
+type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = #f00
+format-foreground = #000
+format-padding = 4
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Empty
+label-empty-foreground = #707880
 
 
 ;###########;

@@ -6,11 +6,10 @@
 
 ########## Variables
 
-dir=~/Documents/dotfiles                # dotfiles directory
-olddir=~/Documents/dotfiles/backup             # old dotfiles backup directory
+dir=~/documents/dotfiles                # dotfiles directory
+olddir=~/documents/dotfiles/_backup             # old dotfiles backup directory
 home_files="zshrc"    # list of files/folders to symlink in homedir
-config_files="compton.conf i3 polybar rofi" # list of files to symlink in ~/.config
-document_files="scripts"
+config_files="picom.conf polybar rofi openbox" # list of files to symlink in ~/.config
 
 ##########
 
@@ -44,18 +43,3 @@ for file in $config_files; do
 done
 echo
 echo
-
-for file in $document_files; do
-	echo "backing up current document files to $olddir"
-	mv ~/Documents/$file $olddir
-	echo "linking to $file in documents directory"
-	ln -s $dir/$file ~/Documents/$file
-done
-echo
-echo
-
-echo "requiring sudo permission to install the sddm theme"
-sudo cp --recursive $dir/chili /usr/share/sddm/themes/chili
-
-cd $dir
-dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
