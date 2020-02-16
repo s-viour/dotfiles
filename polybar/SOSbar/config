@@ -7,14 +7,15 @@ BGK = #f8f8f8
 FRG = #000000
 
 BLK = #2a2b32
-RED = #da3e39
+RED = #ff6961
 GRN = #41933e
 YLW = #855504
 BLU = #315eee
 PPL = #930092
-CYN = #0e6fad
+CYN = #7a8587
 WHT = #ffffff
 ONG = #c1593e
+BRN = #c85f37
 
 
 ;##########;
@@ -26,7 +27,7 @@ background = ${colors.BGK}
 foreground = ${colors.FRG}
 
 border-size = 3px
-border-color = ${colors.BLK}
+border-color = ${colors.CYN}
 
 override-redirect = true
 
@@ -39,7 +40,7 @@ height = 3%
 fixed-center = true
 
 modules-left = ewmh
-modules-right = date pulseaudio cpu memory
+modules-right = date pulseaudio
 
 monitor = eDP1
 
@@ -57,7 +58,7 @@ background = ${colors.BGK}
 foreground = ${colors.FRG}
 
 border-size = 3px
-border-color = ${colors.BLK}
+border-color = ${colors.CYN}
 
 bottom = true
 
@@ -78,8 +79,6 @@ modules-center = spotify
 modules-right = spotify-label
 
 monitor = eDP1
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
 font-0 = "Cutive Mono:size=10.5;1"
 font-1 = FontAwesome:size=12;1
@@ -105,9 +104,10 @@ pin-workspaces = true
 ; You can get a list of the defined desktops using:
 ; $ xprop -root _NET_DESKTOP_NAMES
 icon-0 = home;
-icon-1 = music;
+icon-1 = music;
 icon-2 = chat;
 icon-3 = code;
+icon-4 = graphics;
 
 ; Available tags:
 ;   <label-monitor>
@@ -127,9 +127,8 @@ label-monitor = %name%
 ; Default: %icon%  %name%
 label-active = %icon%
 label-active-padding = 1
-label-active-foreground = #ffffff
-label-active-background = #3f3f3f
-label-active-underline = #fba922
+label-active-foreground = ${colors.FRG}
+label-active-background = ${colors.CYN}
 
 ; Available tokens:
 ;   %name%
@@ -147,8 +146,8 @@ label-occupied-underline = #555555
 ; Default: %icon%  %name%
 label-urgent = %icon%
 label-urgent-padding = 1
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
+label-urgent-foreground = ${colors.FRG}
+label-urgent-background = ${colors.CYN}
 label-urgent-underline = #9b0a20
 
 ; Available tokens:
@@ -158,7 +157,8 @@ label-urgent-underline = #9b0a20
 ; Default: %icon%  %name%
 label-empty = %icon%
 label-empty-padding = 1
-label-empty-foreground = #55
+label-empty-foreground = ${colors.BLK}
+label-empty-background = ${colors.BGK}
 
 ; Create click handler used to focus desktop
 ; Default: true
@@ -276,7 +276,7 @@ label-visible-padding = 1
 ;   %output%
 ; Default: %icon%  %name%
 label-urgent = %icon%
-label-urgent-foreground = ${colors.RED}
+label-urgent-foreground = ${colors.CYN}
 label-urgent-background = ${colors.BGK}
 label-urgent-padding = 1
 

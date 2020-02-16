@@ -18,4 +18,4 @@
 
 picom -b --config ~/.config/picom.conf &
 ~/.config/polybar/SOSbar/launchpolybar.sh &
-
+nitrogen --restore &
