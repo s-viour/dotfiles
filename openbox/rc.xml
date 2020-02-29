@@ -191,11 +191,20 @@
     </keybind>
     <keybind key="S-A-space">
       <action name="ToggleMaximizeFull"/>
+      <action name="MoveToCenter"/>
     </keybind>
     <keybind key="A-w">
       <action name="Execute">
         <command>rofi -show window -theme sos -font &quot;Cutive Mono 14&quot;</command>
       </action>
+    </keybind>
+    <keybind key="S-A-e">
+      <action name="Execute">
+        <command>gnome-terminal -- bash ~/documents/scripts/exit.sh</command>
+      </action>
+      <action name="Unfocus"/>
+      <action name="Focus"/>
+      <action name="MoveToCenter"/>
     </keybind>
     <keybind key="S-A-colon">
       <action name="MoveToEdgeEast"/>

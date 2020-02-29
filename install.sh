@@ -10,6 +10,7 @@ dir=~/documents/dotfiles                # dotfiles directory
 olddir=~/documents/dotfiles/_backup             # old dotfiles backup directory
 home_files="zshrc"    # list of files/folders to symlink in homedir
 config_files="picom.conf polybar rofi openbox" # list of files to symlink in ~/.config
+documents_files="scripts"
 
 ##########
 
@@ -40,6 +41,15 @@ for file in $config_files; do
 	mv ~/.config/$file $olddir
 	echo "linking to $file in config directory"
 	ln -s $dir/$file ~/.config/$file
+done
+echo
+echo
+
+for file in $documents_files; do
+	echo "backing up current documents files to $olddir"
+	mv ~/documents/$file $olddir
+	echo "linking to $file in documents directory"
+	ln -s $dir/$file ~/documents/$file
 done
 echo
 echo

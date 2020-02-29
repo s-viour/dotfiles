@@ -7,7 +7,7 @@ BGK = #f8f8f8
 FRG = #000000
 
 BLK = #2a2b32
-RED = #ff6961
+RED = #ff5d73
 GRN = #41933e
 YLW = #855504
 BLU = #315eee
@@ -47,6 +47,8 @@ monitor = eDP1
 font-0 = "Cutive Mono:size=10.5;1"
 font-1 = FontAwesome:size=12;1
 font-2 = "Font Awesome 5 Brands:size=12;1"
+
+enable-ipc = true
 
 
 ;############;
@@ -481,7 +483,7 @@ content = "  "
 ; WINDOW ICONS ;
 ;##############;
 
-[module/windows]
+[module/windows_old]
 type = custom/script
 exec = python3 ~/.config/polybar/SOSbar/windows.py
 format="<label>"
@@ -495,11 +497,11 @@ interval = 1
 type = internal/battery
 
 ; This is useful in case the battery never reports 100% charge
-full-at = 99
+full-at = 100
 
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
-battery = BAT0
+battery = BAT1
 adapter = ADP1
 
 ; If an inotify event haven't been reported in this many
@@ -543,19 +545,19 @@ format-discharging = <ramp-capacity> <label-discharging>
 ;   %percentage_raw%
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging = Charging %percentage%%
+label-charging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
-label-discharging = Discharging %percentage%%
+label-discharging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
-label-full = Fully charged
+label-full = %percentage%%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
@@ -584,3 +586,13 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
+
+
+;#######################;
+; BETTER WINDOWS MODULE ;
+;#######################;
+
+[module/windows]
+type = custom/ipc
+hook-0 = python3 ~/.config/polybar/SOSbar/windows.py
+initial = 1

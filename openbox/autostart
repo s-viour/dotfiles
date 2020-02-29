@@ -17,5 +17,5 @@
 #xfce-mcs-manager &
 
 picom -b --config ~/.config/picom.conf &
-~/.config/polybar/SOSbar/launchpolybar.sh &
+~/.config/polybar/SOSbar/launch.sh &
 nitrogen --restore &
