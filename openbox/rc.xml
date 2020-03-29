@@ -241,6 +241,9 @@
     <keybind key="A-q">
       <action name="Iconify"/>
     </keybind>
+    <keybind key="S-A-space">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
