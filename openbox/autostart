@@ -1,0 +1,2 @@
+picom -b --config ~/.config/picom.conf &
+nitrogen --restore &
