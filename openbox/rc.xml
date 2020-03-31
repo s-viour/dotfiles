@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
@@ -22,7 +23,7 @@
        mouse into it, also raise the window -->
   </focus>
   <placement>
-    <policy>Smart</policy>
+    <policy>UnderMouse</policy>
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
@@ -40,7 +41,7 @@
   </placement>
   <theme>
     <name>openbox vent theme</name>
-    <titleLayout>NLIMC</titleLayout>
+    <titleLayout>LIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -57,7 +58,7 @@
       <name>Monospace</name>
       <size>12</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -66,7 +67,7 @@
       <name>Monospace</name>
       <size>12</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -93,7 +94,7 @@
       <name>Monospace</name>
       <size>12</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -102,7 +103,7 @@
       <name>Monospace</name>
       <size>12</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -117,13 +118,14 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>5</number>
     <firstdesk>1</firstdesk>
     <names>
-      <!-- set names up here if you want to, like this:
-    <name>desktop 1</name>
-    <name>desktop 2</name>
-    -->
+      <name>home</name>
+      <name>music</name>
+      <name>chat</name>
+      <name>code</name>
+      <name>art</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -225,6 +227,21 @@
         <desktop>5</desktop>
       </action>
     </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="A-j">
+      <action name="DirectionalFocusWest"/>
+    </keybind>
+    <keybind key="A-semicolon">
+      <action name="DirectionalFocusEast"/>
+    </keybind>
+    <keybind key="A-k">
+      <action name="DirectionalFocusNorth"/>
+    </keybind>
+    <keybind key="A-l">
+      <action name="DirectionalFocusSouth"/>
+    </keybind>
     <keybind key="A-Return">
       <action name="Execute">
         <command>alacritty -d 80 24</command>
@@ -232,7 +249,27 @@
     </keybind>
     <keybind key="A-d">
       <action name="Execute">
-        <command>rofi -modi &quot;drun,window,ssh&quot; -show drun</command>
+        <command>rofi -modi "drun,window,run" -show drun</command>
+      </action>
+    </keybind>
+    <keybind key="A-z">
+      <action name="Execute">
+        <command>/home/saviour/.screenshot</command>
+      </action>
+    </keybind>
+    <keybind key="S-A-z">
+      <action name="Execute">
+        <command>/home/saviour/.screenshot ac</command>
+      </action>
+    </keybind>
+    <keybind key="A-grave">
+      <action name="Execute">
+        <command>rtile --all</command>
+      </action>
+    </keybind>
+    <keybind key="S-A-asciitilde">
+      <action name="Execute">
+        <command>rtile --cycle</command>
       </action>
     </keybind>
     <keybind key="S-A-q">
