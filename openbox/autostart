@@ -1,3 +1,4 @@
 picom -b --config ~/.config/picom.conf &
 nitrogen --restore &
 tint2 &
+nm-applet --no-agent &

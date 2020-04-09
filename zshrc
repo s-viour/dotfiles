@@ -12,4 +12,4 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 
 # aliases
-alias ls='exa'
+alias ls='exa --icons'
