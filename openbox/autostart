@@ -2,3 +2,4 @@ picom -b --config ~/.config/picom.conf &
 nitrogen --restore &
 tint2 &
 nm-applet --no-agent &
+xinput set-prop 14 379 1 &

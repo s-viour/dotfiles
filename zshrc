@@ -4,7 +4,11 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export BROWSER=firefox
+
 export PATH=$PATH:/home/saviour/.gem/ruby/2.7.0/bin
+export PATH=$PATH:/home/saviour/.cargo/bin
 
 # aliases
 alias ls='exa --icons'
