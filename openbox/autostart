@@ -1,5 +1,6 @@
-picom -b --config ~/.config/picom.conf &
+picom -b --experimental-backends --config ~/.config/picom.conf &
 nitrogen --restore &
 tint2 &
 nm-applet --no-agent &
-xinput set-prop 14 379 1 &
+xinput set-prop "MSFT0001:02 06CB:7F8F Touchpad" "libinput Tapping Enabled" 1 
+
