@@ -79,7 +79,7 @@ osd.unhilight.bg.color: #fdf6e3
 
 window.active.button.disabled.image.color: #737a8a
 window.active.button.hover.image.color: #dde1e8
-window.active.button.toggled.image.color: #95c1c0
+window.active.button.toggled.image.color: #808080
 window.inactive.button.disabled.image.color: #737a8a
 window.inactive.button.hover.image.color: #d5d9e0
 window.inactive.button.toggled.image.color: #8db9b8
@@ -99,11 +99,11 @@ window.active.button.desk.pressed.image.color: #fec7cd
 window.inactive.button.iconify.unpressed.image.color: #797979
 window.inactive.button.max.unpressed.image.color: #555555
 window.inactive.button.close.unpressed.image.color: #3b3b3b
-window.inactive.button.shade.unpressed.image.color: #46bae0
-window.inactive.button.desk.unpressed.image.color: #f6bfc5
+window.inactive.button.shade.unpressed.image.color: #4ec2e8
+window.inactive.button.desk.unpressed.image.color: #fec7cd
 
 window.inactive.button.iconify.pressed.image.color: #797979
 window.inactive.button.max.pressed.image.color: #555555
 window.inactive.button.close.pressed.image.color: #3b3b3b
-window.inactive.button.shade.pressed.image.color: #46bae0
-window.inactive.button.desk.pressed.image.color: #f6bfc5
+window.inactive.button.shade.pressed.image.color: #4ec2e8
+window.inactive.button.desk.pressed.image.color: #fec7cd
