@@ -1,5 +1,9 @@
 window:
-  title: "terminal" 
+  title: "terminal"
+
+  dimensions:
+    columns: 80
+    lines: 24
 
 env:
   TERM: xterm-256color
